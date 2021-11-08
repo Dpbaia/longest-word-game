@@ -1,0 +1,14 @@
+<h1>Results</h1>
+
+<% if @letter_in_game == false %>
+<%=
+ "#{@result["word"].capitalize} can't be build out of the original grid! Score: 0" %>
+<% elsif @result["found"] == false %>
+  <%="#{@result["word"].capitalize} is valid according to the grid, but is not a valid English word! Score: 0" %>
+<%else%>
+  <%= "#{@result["word"].capitalize} is valid according to the grid and is an English word"%>
+  <p><%="Took #{time_passed = @time_now - params[:og_time].to_i} seconds."%></p>
+  <p><%= "Score: #{@result["length"] * 1000 / time_passed}" %></p>
+<%end%>
+
+<%= link_to "Play again", new_path %>
