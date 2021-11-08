@@ -8,7 +8,9 @@
 <%else%>
   <%= "#{@result["word"].capitalize} is valid according to the grid and is an English word"%>
   <p><%="Took #{time_passed = @time_now - params[:og_time].to_i} seconds."%></p>
-  <p><%= "Score: #{@result["length"] * 1000 / time_passed}" %></p>
+  <p><%= "Score: #{@score = (@result["length"] * 1000) / time_passed}" %></p>
+  <p><%= "Global score: #{session[:score] = @score}" %></p>
+
 <%end%>
 
-<%= link_to "Play again", new_path %>
+<p><%= link_to "Play again", new_path %></p>

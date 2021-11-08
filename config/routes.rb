@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  Rails.application.config.session_store :cookie_store, key: '_your_app_session'
+
   get 'new', to: 'games#new'
 
   post 'score', to: 'games#score'
